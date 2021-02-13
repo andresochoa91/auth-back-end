@@ -28,7 +28,7 @@ module AuthBackEnd
 
     config.middleware.insert_before 0, Rack::Cors, debug: true do
       allow do
-        origins 'localhost:3001', 'localhost:3000' 
+        origins 'localhost:3001', 'localhost:3000', 'https://auth-js.netlify.app' 
         resource '*', 
           headers: :any,
           expose: 'Authorization',
