@@ -31,6 +31,7 @@ module AuthBackEnd
         origins 'localhost:3001', 'localhost:3000' 
         resource '*', 
           headers: :any,
+          expose: 'Authorization',
           methods: [:get, :post, :put, :patch, :delete, :options, :head],
           credentials: true
       end
