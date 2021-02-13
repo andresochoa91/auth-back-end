@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def create
     if !current_user
       email = params["email"]
@@ -6,7 +7,8 @@ class SessionsController < ApplicationController
       if email && password
         login_hash = User.handle_login(email, password)
         if login_hash
-          render json: login_hash
+          response.set_header('Authorization', login_hash[:token])
+          render json: {message: "Authorized"}
         else
           render json: {error: 'Incorrect email or password'}, status: 422  
         end
