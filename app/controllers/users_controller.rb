@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         render ({
           json: {
             message: "User created successfully",
-            user: login_hash
+            token: login_hash[:token]
           },
           status: 201
         })
